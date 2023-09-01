@@ -5,7 +5,7 @@ public class GeradorPlacas
     static Random random = new Random();
     static int qtPlacas =1;
 
-    public static String placa()
+    public static String getPlaca()
     {
         String placaCompleta;
 

@@ -4,10 +4,9 @@ import java.util.Scanner;
 public class Proprietario
 {
     String nome;
-    ArrayList<Carro> meuCarro = new ArrayList<Carro>();
+    ArrayList<Carro> meusCarros = new ArrayList<Carro>();
     String CNH;
 
-    // Construtor para inicializar um proprietário
     public Proprietario(String nome, String CNH)
     {
         this.nome = nome;
@@ -18,7 +17,7 @@ public class Proprietario
     {
         int qtCarros;
 
-        System.out.printf("Qual a quantidade de carros do(a) %s (min:1): ",this.nome);
+        System.out.printf("Qual a quantidade de carros do(a) %s (min:1): ",nome);
         qtCarros = scanner.nextInt();
         scanner.nextLine();
 
@@ -26,11 +25,14 @@ public class Proprietario
 
         for(int i = 0 ; i < qtCarros ; i++)
         {
-            Carro garagem = new Carro();
+            String modelo;
+            String placa = GeradorPlacas.getPlaca();
 
-            System.out.printf("Digite o nome do carro do(a) %s: ", this.nome);
-            garagem.modelo = scanner.nextLine();
-            meuCarro.add(garagem);
+            System.out.printf("Qual o modelo do carro %d do(a) %s: ",i+1,nome);
+            modelo = scanner.nextLine();
+            Carro carro = new Carro(placa,modelo);
+            meusCarros.add(carro);
+            carro.registrarMultas(meusCarros);
 
         }
 
