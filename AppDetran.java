@@ -2,6 +2,12 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Random;
 
+/*
+Um código simples, mas com algumas redundâncias
+*/
+
+
+
 public class AppDetran
 {
     public static ArrayList<Proprietario> listaProprietario = new ArrayList<Proprietario>();
@@ -71,10 +77,12 @@ public class AppDetran
 
     public static void mostraRegistros()
     {
-
+        int aux2=0;
+        int qtmulta=0;
         for (Proprietario proprietario : listaProprietario)
         {
             int aux = 1;
+            aux2++;
 
             System.out.printf("\nO nome do proprietário é %s\n",proprietario.nome);
             System.out.printf("O CNH do proprietário é %s\n\n",proprietario.CNH);
@@ -87,14 +95,20 @@ public class AppDetran
 
                 for(Multa multa : carro.getMultas())
                 {
+                    qtmulta++;
                     System.out.printf("O carro possui uma multa por %s no valor de %.2fR$\n\n",multa.infracao,multa.valor);
                     break;
                 }
             }
+            System.out.printf("O proprietário possui %d carro(s)\n",aux-1);
+
             System.out.print("-->Pressione 'Enter' para continuar: ");
             scanner.nextLine();
         }
+        System.out.printf("\nExistem %d proprietario(s) e %d carros registrado(s)\n",aux2,(GeradorPlacas.qtPlacas)-1);
+        System.out.println("O total de multas é " + qtmulta);
         System.out.print("\nSem mais proprietários!\n");
+
 
     }
 

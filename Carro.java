@@ -36,21 +36,14 @@ public class Carro
         pontosCarteira.valor=0.0f;
         System.out.printf("Qual a infração do carro %s: ", this.modelo);
         pontosCarteira.infracao = scanner.nextLine();
-        pontosCarteira.infracao = pontosCarteira.infracao.isEmpty() ? "Nenhuma" : pontosCarteira.infracao;
         multas.add(pontosCarteira);
 
-        if(pontosCarteira.infracao.equals("nenhuma") || pontosCarteira.infracao.equals("nenhum"))
-        {
-            multas.add(pontosCarteira);
-        }
-        else
-        {
-            System.out.print("Qual o valor da multa: ");
-            pontosCarteira.valor = scanner.nextFloat();
-            scanner.nextLine();
+        System.out.print("Qual o valor da multa: ");
+        pontosCarteira.valor = scanner.nextFloat();
+        scanner.nextLine();
 
-            multas.add(pontosCarteira);
-        }
+        multas.add(pontosCarteira);
+
     }
 }
 
